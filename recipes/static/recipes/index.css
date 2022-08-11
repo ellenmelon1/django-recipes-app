@@ -6,20 +6,19 @@ h1 {
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: var(--regularPadding);
     margin: var(--regularMargin);
 }
 
 .card {
     background-color: var(--primaryColour);
-    width: 300px;
-    height: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: var(--regularPadding)
 }
 
@@ -28,12 +27,11 @@ h1 {
     text-decoration: none;
     font-size: var(--smallHeadingFontSize);
     font-weight: bolder;
+    padding-bottom: 10px;
 }
 
 .create-recipe-card {
     background-color: var(--tertiaryColour);
-    height: 100px;
-    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -4,7 +4,7 @@
 <div class="container">
 
 <h1>Enter recipe details</h1>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-input">
         <label htmlFor="name">Name</label>
@@ -17,6 +17,10 @@
     <div class="form-input">
         <label htmlFor="ingredients">Ingredients</label>
         <textarea type="text-area" name="ingredients">{{recipe.ingredients}}</textarea>
+    </div>
+    <div class="form-input">
+        <label htmlFor="image">Attach an image</label>
+        <input type="file" name="image"/>
     </div>
         <input class="submit" type="submit" value="Create Recipe">
 </form>
