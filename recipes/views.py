@@ -3,10 +3,11 @@ from django.http import HttpResponse, HttpRequest, Http404, HttpResponseRedirect
 from .models import Recipes
 from django.views import generic
 from django.urls import reverse
-from recipes import views
 from .forms import RecipeForm
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request):
     recipes_list = Recipes.objects.all()
     context = {
@@ -14,6 +15,7 @@ def index(request):
     }
     return render(request, 'recipes/index.html', context)
 
+@login_required
 def create_recipe(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES)
@@ -34,6 +36,7 @@ def create_recipe(request):
         form = RecipeForm()
     return render(request, 'recipes/create_recipe.html', {'form': form})
 
+@login_required
 def detail(request, id):
     try:
         recipe = Recipes.objects.get(pk=id)
@@ -42,11 +45,13 @@ def detail(request, id):
 
     return render(request,'recipes/detail.html', {'recipe': recipe})
 
+@login_required
 def delete(request, id):
     recipe = Recipes.objects.get(pk=id)
     recipe.delete() 
     return redirect('recipes:index')
 
+@login_required
 def update(request, id):
     recipe = Recipes.objects.get(pk=id)
 
@@ -56,6 +61,7 @@ def update(request, id):
 
     return render(request, 'recipes/update.html', {'recipe': formattedRecipe})
 
+@login_required
 def updaterecord(request, id):
     recipe = Recipes.objects.get(pk=id)
 

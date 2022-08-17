@@ -1,2 +1,8 @@
-<p>Logged out successfully</p>
-<a href="{% url 'login'%}">Click here to login again.</a>
+{% load static %}
+{% include "recipes/nav.html" %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'registration/logged_out.css' %}">
+
+<div class="container">
+<h1>Logged out successfully</h1>
+</div>

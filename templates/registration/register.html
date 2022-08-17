@@ -1,0 +1,32 @@
+{% load static %}
+{% include "recipes/nav.html" %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'registration/registration.css' %}">
+
+<div class="container">
+<h1>Sign up</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.username.errors}}
+    <div class="input-section">
+        <label for="username">Username:</label>
+        {{form.username}}
+    </div>
+    {{form.email.errors}}
+    <div class="input-section">
+        <label for="email">Email:</label>
+        {{form.email}}
+    </div>
+    {{form.password1.errors}}
+    <div class="input-section">
+        <label for="password">Password:</label>
+        {{form.password1}}
+    </div>
+    {{form.password2.errors}}
+    <div class="input-section">
+        <label>Password confirmation:</label>
+        {{form.password2}}
+    </div>
+    <button class="signup-button" type="submit">Sign up</button>
+</form>
+</div>
