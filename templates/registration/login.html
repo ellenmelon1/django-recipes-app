@@ -1,0 +1,25 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'registration/login.css' %}">
+ 
+ {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  <div class="container">
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="input-section">
+        {{ form.username.label_tag }}
+        {{form.username}}
+      </div>
+      <div class="input-section">
+        {{ form.password.label_tag }}
+        {{form.password}}
+      </div>
+    <input type="submit" value="login" class="login-button">
+  </form>
+
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</div>
+

@@ -8,4 +8,4 @@ class Recipes(models.Model):
     ingredients = ArrayField(models.CharField(max_length=50, blank=True), default=list)
     def __str__(self):
         return self.name
-    image = models.ImageField(upload_to='images/', default='blank')
+    image = models.ImageField(upload_to = 'images/', default = 'blank')
