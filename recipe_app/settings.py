@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'storages'
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -128,11 +128,13 @@ import os
 MEDIA_URL = '/media/'  
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 AWS_STORAGE_BUCKET_NAME = 'ellen-recipes-bucket'
 AWS_S3_FILE_OVERWRITE = False  
 AWS_S3_REGION_NAME = "eu-west-2" 
+AWS_ACCESS_KEY_ID = 'AKIA2Q4KOHEYA4AP36EE'
+AWS_SECRET_ACCESS_KEY = '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'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
